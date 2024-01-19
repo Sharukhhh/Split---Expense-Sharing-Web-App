@@ -7,13 +7,21 @@ const initialState = {
 
 const collectionSlice = createSlice({
 
-    name : 'userCollection',
+    name : 'collection',
     initialState,
 
     reducers : {
 
         addToCollection : (state , action) => {
-            state.userCollection.push(action.payload);
+
+            const newUser = action.payload;
+            const existingUser = state.userCollection.some(user => user.email === newUser.email || user.mobile === newUser.mobile);
+
+            if(!existingUser){
+                state.userCollection.push(newUser);
+            } else {
+                console.log('Existing user');
+            }
         },
     }
 });

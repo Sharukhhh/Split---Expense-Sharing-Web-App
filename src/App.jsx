@@ -4,6 +4,8 @@ import {Toaster} from 'react-hot-toast';
 import Home from './Pages/Home';
 import Dashboard from './Pages/Dashboard';
 import PrivateRoutes from './Components/privateWrapper/PrivateRoutes';
+import Split from './Pages/Split';
+import Users from './Pages/Users';
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
 
         <Route element={<PrivateRoutes/>}>
           <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/calculate' element={<Split/>}/>
+          <Route path='/users' element={<Users/>}/>
         </Route>
       </Routes>
     </>

@@ -10,7 +10,7 @@ const userAuthPersistConfig = {
 }
 
 const userCollectionConfig = {
-    key: 'userCollection',
+    key: 'collection',
     storage
 }
 
@@ -22,7 +22,7 @@ const collectionPersistReducer = persistReducer(userCollectionConfig , userColle
 export const store = configureStore({
     reducer : {
         login : authPersistedReducer,
-        userCollection : collectionPersistReducer
+        collection : collectionPersistReducer
     }
 })
 

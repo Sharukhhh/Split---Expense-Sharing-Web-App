@@ -7,6 +7,7 @@ import { setUserDataToStore } from '../../redux/slices/userAuthSlice'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { addToCollection } from '../../redux/slices/userCollectionSlice'
+import FormHeader from '../titles/FormHeader'
 
 const Signin = () => {
 
@@ -19,10 +20,15 @@ const Signin = () => {
             mobile : ''
         },
         validationSchema : loginSchemaValidation,
-        onSubmit :  (values ) => {
-            console.log(values )
+        onSubmit :  (values) => {
+
             const userData = values;
-            dispatch(setUserDataToStore(userData));
+            const userForCollection = {
+                name : values.name,
+                email : values.email,
+                mobile: values.mobile
+            }
+            dispatch(setUserDataToStore(userForCollection));
             dispatch(addToCollection(userData));
 
             toast.success('Login Successfull');
@@ -36,11 +42,8 @@ const Signin = () => {
     <>
         <div className='bg-gradient-to-bl from-[#2193b0] to-[#6dd5ed] pb-28'>
             <div className='backdrop-blur-md border-solid flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
-                <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-                    <h2 className='mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-white'>
-                        Sign In To Expense Sharing App
-                    </h2>
-                </div>
+
+                <FormHeader title={'Sign In To Expense Sharing App'}/>
 
                 <div className='border-2 rounded-md bg-[#fafafa] bg-opacity-80 p-5 shadow-lg shadow-black mt-10 sm:mx-auto sm:w-full sm:max-w-md'>
                     <form className='space-y-6' onSubmit={formik.handleSubmit}>
