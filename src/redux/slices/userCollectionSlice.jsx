@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import { addSplit } from './splitSlice';
 
 
 const initialState = {
@@ -23,7 +24,27 @@ const collectionSlice = createSlice({
                 console.log('Existing user');
             }
         },
-    }
+    },
+
+    // extraReducers : (builders) => {
+    //     builders.addCase(addSplit , (state , action) => {
+    //         const {subject , totalAmount , seletedUsers , loggedInUser} = action.payload;
+
+    //         const amountToPayPerUser = Math.floor(totalAmount / (seletedUsers.length + 1))
+
+    //         // Updating balance for each selectedUser
+    //         seletedUsers.forEach((user) => {
+    //             const exisitngUserIndex = state.userCollection.findIndex(
+    //                 (collectionUser) => collectionUser.email === user.email
+    //             );
+
+    //             if(exisitngUserIndex !== -1){
+    //                 state.userCollection[exisitngUserIndex].balance += amountToPayPerUser
+    //             }
+    //         })
+
+    //     })
+    // }
 });
 
 export const {addToCollection} = collectionSlice.actions;

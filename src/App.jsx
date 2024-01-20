@@ -6,6 +6,8 @@ import Dashboard from './Pages/Dashboard';
 import PrivateRoutes from './Components/privateWrapper/PrivateRoutes';
 import Split from './Pages/Split';
 import Users from './Pages/Users';
+import Messages from './Pages/Messages';
+import History from './Pages/History';
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/calculate' element={<Split/>}/>
           <Route path='/users' element={<Users/>}/>
+          <Route path='/messages' element={<Messages/>}/>
+          <Route path='/history' element={<History/>}/>
         </Route>
       </Routes>
     </>

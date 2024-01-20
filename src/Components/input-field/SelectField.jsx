@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SelectField = ({name , id , value, onChangeValue , options}) => {
+const SelectField = ({name , id , value, onChangeValue , options }) => {
   return (
     <>
         <div className='mt-2'>
@@ -14,7 +14,7 @@ const SelectField = ({name , id , value, onChangeValue , options}) => {
                 <option value={''} disabled>Select a user</option>
 
                 {options?.map((user) => (
-                    <option key={user?.email} value={user?.name}>
+                    <option key={user?.email} value={user?.email}>
                         {user?.name}
                     </option>
                 ))}

@@ -10,7 +10,15 @@ export const loginSchemaValidation = yup.object({
 
 export const splitSchemaValidation = yup.object({
     subject : yup.string('Invalid Entry').required('Subject is Required'),
-    totalAmount : yup.number().integer('Invalid Data').positive('Invalid Entry').required('Total Amount is required'),
-    paidAmount : yup.number().integer('Invalid Data').positive('Invalid Entry').required('Paid Amount is required'),
-    balance : yup.number().integer('Invalid Data').positive('Invalid Entry').required('Total Amount is required')
+    totalAmount : yup.number().positive('Invalid Entry').required('Total Amount is required'),
 })
+
+export const formatDate = (dateData) => {
+    const date = new Date(dateData);
+
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${day}-${month}-${year}`;
+}
