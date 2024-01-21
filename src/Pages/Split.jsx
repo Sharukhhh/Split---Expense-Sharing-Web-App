@@ -54,22 +54,23 @@ const Split = () => {
 
             const splitpayload = {
                 createdBy : loggedUser?.name,
-                subject : values.subject,
-                totalAmount: values.totalAmount,
+                subject : values?.subject,
+                totalAmount: values?.totalAmount,
                 selectedUsers : selectedUsers.map((user) => ({name : user?.name , balance: 0}))
             }
 
             const notificationpayload = {
-                message : `${loggedUser?.name} has shared a expense split with you and ${selectedUsers.length} others based on ${values.subject}`,
-                
+                message : '',
                 subMessage : '',
-                
                 recievers : selectedUsers.map((user) => user.name),
+                amount: values?.totalAmount
             }
 
             if(selectedUsers.length > 1){
-                notificationpayload.subMessage = `With you, ${selectedUsers.slice(0 , -1).map(user => user.name).join(', ')} and ${selectedUsers.slice(-1)[0].name}`;
+                notificationpayload.message= `${loggedUser?.name} has shared a expense split with you and ${selectedUsers.length} others based on ${values.subject}`
+                notificationpayload.subMessage = `With ${selectedUsers.slice(0 , -1).map(user => user.name).join(', ')} and ${selectedUsers.slice(-1)[0].name}`;
             } else {
+                notificationpayload.message = `${loggedUser?.name} has shared a expense split with you based on <span class="font-bold">${values.subject}</span>`;
                 notificationpayload.subMessage = 'With you only';
             }
 

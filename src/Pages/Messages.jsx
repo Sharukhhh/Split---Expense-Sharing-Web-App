@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import NavBar from '../Components/navbar/NavBar'
 import { useSelector } from 'react-redux'
 import InfoCard from '../Components/cards/InfoCard';
-// import Pagination from '../Components/pagination/Pagination';
 
 const Messages = () => {
 
@@ -11,7 +10,7 @@ const Messages = () => {
     const expenses = useSelector((state) => state.split.expenses);
 
     notifications = notifications?.slice(1)?.filter((message) => {
-      message?.recievers?.some((reciever) => reciever === loggedUser?.name)
+      return message?.recievers?.some((reciever) => reciever === loggedUser?.name)
     });
 
     const totalBalanceDue = expenses.reduce((total , expense) => {
@@ -20,10 +19,8 @@ const Messages = () => {
     }, 0)
 
     const userInvolvedExpenses = expenses.filter((expense) => {
-      expense?.selectedUsers?.some((user) => user?.name === loggedUser?.name);
+      return expense?.selectedUsers?.some((user) => user?.name === loggedUser?.name);
     });
-
-    console.log(userInvolvedExpenses, 'dd')
 
   return (
     <>
@@ -38,7 +35,7 @@ const Messages = () => {
         <div className='flex flex-row justify-center mt-10 md:justify-start md:ml-10'>
           <div className='border-2 border-dashed border-gray-900 p-6 text-md'>
             {userInvolvedExpenses?.map((expense , index) => (
-              <p key={index}>
+              <p key={index} className='font-semibold font-mono'>
                 Subject : {expense?.subject},  Balance: {expense?.selectedUsers?.find((user) => user?.name === loggedUser?.name)?.balance || 0}
               </p>
             ))}

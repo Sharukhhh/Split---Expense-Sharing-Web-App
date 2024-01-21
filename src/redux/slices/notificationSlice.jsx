@@ -8,6 +8,7 @@ const initialState = {
             subMessage : '',
             createdAt : null,
             recievers: [],
+            amount : 0,
         }
     ]
 }
@@ -26,6 +27,7 @@ const notificationslice = createSlice({
                 subMessage : newNotification.subMessage,
                 createdAt : formatDate(Date.now()),
                 recievers: newNotification.recievers,
+                amount : newNotification.amount
             })
         }
     }

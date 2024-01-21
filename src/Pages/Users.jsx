@@ -2,7 +2,6 @@ import React , {useState} from 'react'
 import { useSelector } from 'react-redux'
 import NavBar from '../Components/navbar/NavBar';
 import Profilecard from '../Components/cards/Profilecard';
-// import Pagination from '../Components/pagination/Pagination';
 
 const Users = () => {
 
