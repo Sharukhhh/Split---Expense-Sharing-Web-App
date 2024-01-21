@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from '../Components/navbar/NavBar'
 import { useSelector } from 'react-redux'
 import InfoCard from '../Components/cards/InfoCard';
+// import Pagination from '../Components/pagination/Pagination';
 
 const History = () => {
 

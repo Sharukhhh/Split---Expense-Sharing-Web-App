@@ -62,15 +62,27 @@ const Split = () => {
             const notificationpayload = {
                 message : `${loggedUser?.name} has shared a expense split with you and ${selectedUsers.length} others based on ${values.subject}`,
                 
-                subMessage : `With you, ${selectedUsers.slice(0 , -1).map(user => user.name).join(', ')} and ${selectedUsers.slice(-1)[0].name}`,
+                subMessage : '',
                 
                 recievers : selectedUsers.map((user) => user.name),
             }
 
+            if(selectedUsers.length > 1){
+                notificationpayload.subMessage = `With you, ${selectedUsers.slice(0 , -1).map(user => user.name).join(', ')} and ${selectedUsers.slice(-1)[0].name}`;
+            } else {
+                notificationpayload.subMessage = 'With you only';
+            }
+
             const historyPayload = {
-                info : `You created A Split with ${selectedUsers.slice(0 , -1).map(user => user.name).join(', ')} and ${selectedUsers.slice(-1)[0].name}`,
+                info : '',
                 amount : values.totalAmount,
                 createdBy : loggedUser?.name
+            }
+
+            if(selectedUsers.length > 1){
+                historyPayload.info = `You created a Split with ${selectedUsers.slice(0 , -1).map(user => user.name).join(', ')} and ${selectedUsers.slice(-1)[0].name}`;
+            } else {
+                historyPayload.info = `You created a Split with ${selectedUsers.map(user => user.name).join('')}`
             }
 
 
@@ -78,6 +90,7 @@ const Split = () => {
             dispatch(addNotification(notificationpayload));
             dispatch(addToHistory(historyPayload));
             resetForm();
+            setSelectedUsers([]);
 
             return toast.success('Split Expense Updated');
         }
@@ -106,7 +119,7 @@ const Split = () => {
                         />
 
                         <InputField
-                        placeholder={'Total Amount'}
+                        placeholder={'Total Amount (In Indian Rupee)'}
                         name={'totalAmount'}
                         type={'text'}
                         id={'totalAmount'}

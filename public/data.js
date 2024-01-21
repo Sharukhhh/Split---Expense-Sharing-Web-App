@@ -1,4 +1,6 @@
-export const collection = [
+// Expected Output Result
+
+collection = [
     {
         name : 'john doe',
         email : 'john@gmail.com',
@@ -25,7 +27,7 @@ export const collection = [
     }
 ]
 
-export const splitCollection = [
+splitCollection = [
     {
         createdBy : 'Alex',   //Split created user  (this field should automcatically created by app with loggedInuser data from slice who is responsible for creating)
         subject : 'Movie Expense', //Reason for split
