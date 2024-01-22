@@ -70,7 +70,7 @@ const Split = () => {
                 notificationpayload.message= `${loggedUser?.name} has shared a expense split with you and ${selectedUsers.length} others based on ${values.subject}`
                 notificationpayload.subMessage = `With ${selectedUsers.slice(0 , -1).map(user => user.name).join(', ')} and ${selectedUsers.slice(-1)[0].name}`;
             } else {
-                notificationpayload.message = `${loggedUser?.name} has shared a expense split with you based on <span class="font-bold">${values.subject}</span>`;
+                notificationpayload.message = `${loggedUser?.name} has shared a expense split with you based on ${values.subject}`;
                 notificationpayload.subMessage = 'With you only';
             }
 
