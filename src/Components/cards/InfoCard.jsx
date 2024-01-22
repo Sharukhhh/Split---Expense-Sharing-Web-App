@@ -18,12 +18,12 @@ const InfoCard = ({datas , isMessage , expenses}) => {
                             {expenses
                                 .filter((expense) => expense?.createdBy === data?.createdBy)
                                 .map((expense, expenseIndex) => (
-                                <div key={expenseIndex}>
-                                    <p className='font-medium mb-2'>Subject: {expense.subject}</p>
-                                    {expense.selectedUsers.map((user, userIndex) => (
-                                        <p className='font-medium' key={userIndex}>{user.name}: ₹ {user.balance}</p>
-                                    ))}
-                                </div>
+                                    <div key={expenseIndex}>
+                                        <p className='font-medium mb-2'>Subject: {expense.subject}</p>
+                                        {expense.selectedUsers.map((user, userIndex) => (
+                                            <p className='font-medium' key={userIndex}>{user.name}: ₹ {user.balance}</p>
+                                        ))}
+                                    </div>
                             ))}
                             </div>
                         )}

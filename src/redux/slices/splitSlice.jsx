@@ -22,11 +22,10 @@ const splitSlice = createSlice({
     reducers : {
         addSplit : (state , action) => {
             const newSplit = action.payload;
-            let selectedUsers = state.expenses[state.expenses.length - 1].selectedUsers;
+            // let selectedUsers = state.expenses[state.expenses.length - 1].selectedUsers;
+            const n = newSplit.selectedUsers.length;
 
-            const n = selectedUsers.length + 1;
-
-            const amountToPayPerUser = newSplit.totalAmount / n;
+            const amountToPayPerUser = newSplit.totalAmount / n + 1;
 
             newSplit.selectedUsers.forEach((user) => {
                 user.balance += amountToPayPerUser;
