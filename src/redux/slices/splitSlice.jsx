@@ -24,7 +24,9 @@ const splitSlice = createSlice({
             const newSplit = action.payload;
             const n = newSplit.selectedUsers.length;
 
-            const amountToPayPerUser = newSplit.totalAmount / n + 1;
+            console.log(n, '###');
+
+            const amountToPayPerUser = newSplit.totalAmount / (n + 1);
 
             newSplit.selectedUsers.forEach((user) => {
                 user.balance += amountToPayPerUser;
