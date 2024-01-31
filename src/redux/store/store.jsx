@@ -50,12 +50,6 @@ export const store = configureStore({
         split : splitPersistReducer,
         messages : notificationPersistReducer,
         history : historyPersistReducer
-
-        // login : userAuthReducer,
-        // collection : userCollectionReducer,
-        // split : splitReducer,
-        // messages : notficationReducer,
-        // history : historyReducer
     }
 })
 

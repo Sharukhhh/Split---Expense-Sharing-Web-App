@@ -66,8 +66,11 @@ const Split = () => {
                 amount: values?.totalAmount
             }
 
-            if(selectedUsers.length > 1){
+            if(selectedUsers.length > 2){
                 notificationpayload.message= `${loggedUser?.name} has shared a expense split with you and ${selectedUsers.length} others based on ${values.subject}`
+                notificationpayload.subMessage = `With ${selectedUsers.slice(0 , -1).map(user => user.name).join(', ')} and ${selectedUsers.slice(-1)[0].name}`;
+            } else if (selectedUsers.length === 2){
+                notificationpayload.message= `${loggedUser?.name} has shared a expense split with you and ${selectedUsers.length} other based on ${values.subject}`
                 notificationpayload.subMessage = `With ${selectedUsers.slice(0 , -1).map(user => user.name).join(', ')} and ${selectedUsers.slice(-1)[0].name}`;
             } else {
                 notificationpayload.message = `${loggedUser?.name} has shared a expense split with you based on ${values.subject}`;

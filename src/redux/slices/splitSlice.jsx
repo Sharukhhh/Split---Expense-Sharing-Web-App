@@ -5,6 +5,7 @@ const initialState = {
         {
             createdBy : '',
             subject : '',
+            createdAt : null,
             totalAmount : 0,
             selectedUsers : [{
                 name : '', balance : 0
@@ -24,8 +25,6 @@ const splitSlice = createSlice({
             const newSplit = action.payload;
             const n = newSplit.selectedUsers.length;
 
-            console.log(n, '###');
-
             const amountToPayPerUser = newSplit.totalAmount / (n + 1);
 
             newSplit.selectedUsers.forEach((user) => {
@@ -35,6 +34,7 @@ const splitSlice = createSlice({
             state.expenses.push({
                 createdBy : newSplit.createdBy,
                 subject : newSplit.subject,
+                createdAt : newSplit.createdAt,
                 totalAmount : newSplit.totalAmount,
                 selectedUsers : newSplit.selectedUsers
             });
