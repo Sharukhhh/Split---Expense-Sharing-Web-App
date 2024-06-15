@@ -4,7 +4,7 @@ Split, a Complete Front-end based Expense Sharing web application built with **R
 
 ## Link
 
-**Live on:** [App link]()
+**Live on:** [App link](https://split-expense-kappa.vercel.app/)
 
 
 
